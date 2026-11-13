@@ -226,6 +226,16 @@ html, body {
   display: none;
 }
 
+.guide-btn {
+  background: #ffffff;
+  color: var(--case-accent);
+  border: 1.5px solid var(--case-accent);
+}
+
+.guide-btn.guide-btn--stacked {
+  bottom: calc(9% + env(safe-area-inset-bottom, 0px) + 58px);
+}
+
 .room-nav {
   position: absolute;
   top: 60%;
@@ -362,4 +372,5 @@ html, body {
   }
 
   .map-btn { font-size: 0.76rem; padding: 10px 18px; bottom: 7%; }
+  .guide-btn.guide-btn--stacked { bottom: calc(7% + env(safe-area-inset-bottom, 0px) + 50px); }
 }

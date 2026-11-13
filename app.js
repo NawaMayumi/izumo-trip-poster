@@ -67,6 +67,7 @@ const TRIP_STOPS = [
     title: "平田の宿にチェックイン", note: "出雲大社から車で約30分",
     fullDescription: "出雲大社から車で約30分。宿にチェックインします。ナビは出雲市平田町950-30。",
     parkingLabel: "敷地内の駐車場", parkingAddress: "〒691-0001 島根県出雲市平田町950-30",
+    guideUrl: "https://uhunn2016.wixsite.com/suzukaketei", guideLabel: "📖 使い方ガイドを見る",
   },
   {
     day: 2, order: 8, time: "07:45", timeRange: "07:45", category: "移動", emoji: "🚗",
@@ -955,6 +956,7 @@ const caseStudyEl = document.getElementById("case-study");
 const caseTitleEl = document.getElementById("caseTitle");
 const caseTagsEl = document.getElementById("caseTags");
 const caseMapBtn = document.getElementById("caseMapBtn");
+const caseGuideBtn = document.getElementById("caseGuideBtn");
 const closeCaseStudyBtn = document.getElementById("closeCaseStudy");
 const casePrevBtn = document.getElementById("casePrev");
 const caseNextBtn = document.getElementById("caseNext");
@@ -1017,6 +1019,16 @@ function openStopDeck(stop) {
       caseMapBtn.classList.remove("hidden");
     } else {
       caseMapBtn.classList.add("hidden");
+    }
+
+    if (stop.guideUrl) {
+      caseGuideBtn.href = stop.guideUrl;
+      caseGuideBtn.textContent = stop.guideLabel || "📖 使い方ガイドを見る";
+      caseGuideBtn.classList.remove("hidden");
+      // stack above the map button when both are shown, otherwise take its spot
+      caseGuideBtn.classList.toggle("guide-btn--stacked", Boolean(stop.mapAddress));
+    } else {
+      caseGuideBtn.classList.add("hidden");
     }
 
     caseStudyEl.classList.remove("hidden");
