@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>出雲鳥取ドライブ旅程</title>
+  <script>document.write(`<link rel="stylesheet" href="style.css?v=${Date.now()}">`);</script>
+</head>
+<body>
+  <div id="hud">
+    <h1>出雲鳥取ドライブ旅程 11.14-15</h1>
+    <p>ドラッグで360°見渡せます・カードをクリックするとそのスポットのスライドが開きます</p>
+  </div>
+
+  <div id="canvas-wrap"></div>
+
+  <div id="case-study" class="case-study hidden" aria-modal="true" role="dialog">
+    <header class="gallery-header">
+      <button id="closeCaseStudy" class="case-close" type="button" aria-label="ラックに戻る">←</button>
+      <div class="gallery-brand"><span class="gallery-dot" aria-hidden="true"></span>出雲鳥取ドライブ</div>
+      <div class="gallery-title">
+        <h2 id="caseTitle"></h2>
+        <p id="caseTags"></p>
+      </div>
+    </header>
+    <a id="caseMapBtn" class="map-btn hidden" href="#" target="_blank" rel="noopener">📍 駐車場をGoogleマップで開く</a>
+    <button id="casePrev" class="room-nav room-nav--prev" type="button" aria-label="前の目的地">‹</button>
+    <button id="caseNext" class="room-nav room-nav--next" type="button" aria-label="次の目的地">›</button>
+  </div>
+
+  <button id="openPlainSummary" class="plain-summary-btn" type="button">とてもわかりやすいふつうのまとめはこちら</button>
+
+  <div id="plain-summary" class="plain-summary hidden" aria-modal="true" role="dialog">
+    <button id="closePlainSummary" class="plain-summary-close" type="button" aria-label="閉じる">×</button>
+    <div class="plain-summary-scroll">
+      <img src="summary/day1.png" alt="DAY1 奥出雲から出雲大社へ" />
+      <img src="summary/day2.png" alt="DAY2 庭園と写真、神山経由で高知へ" />
+    </div>
+  </div>
+
+  <div id="scene-fade" class="scene-fade"></div>
+
+  <div id="loading">
+    <div class="spinner"></div>
+    <span>ラックを準備中…</span>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module">
+    import(`./app.js?v=${Date.now()}`);
+  </script>
+</body>
+</html>
